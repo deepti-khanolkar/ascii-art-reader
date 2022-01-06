@@ -121,30 +121,3 @@ function pressEnter () {
 }
 ```
 
-As you can see, `readline` gives you even more practice with callbacks! If you want to get a little more fancy, try using the `prompt` npm package for input. An example of how you might use it:
-
-```js
-const prompt = require('prompt')
-
-prompt.message = ''
-prompt.delimiter = ': '
-prompt.start()
-
-const choice = {
-  name: 'choice',
-  hidden: true,
-  message: 'Make your choice'
-}
-
-prompt.get(choice, function (err, result) {
-  // Do something with result.choice here...
-})
-```
-
-The callback you pass to `prompt.get` will receive an object that has a property with the name of your input, so for example:
-
-```js
-{
-  choice: '1'
-}
-```
