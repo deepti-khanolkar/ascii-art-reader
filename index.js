@@ -3,17 +3,20 @@ const readline = require('readline')
 
 console.log("Welcome")
 
+let imgArr = []
+
 fs.readdir('data',(err, data) => {
     console.log()
     for (let i=0; i<data.length; i++){
         let index = i + 1
         console.log(index + " " + data[i])
     }
+    imgArr = data
     pressEnter ()
 })
 
 function loadFile(input) {
-    let txtLink = "data/${data[input-1]}"
+    let txtLink = `data/${imgArr[input-1]}`
     fs.readFile(txtLink, 'utf-8', (err, data) => {
     console.log(data)
     })          
