@@ -12,7 +12,7 @@ fs.readdir('data',(err, data) => {
         console.log(index + " " + data[i])
     }
     imgArr = data
-    pressEnter ()
+    pressEnter()
 })
 
 function loadFile(input) {
@@ -22,7 +22,7 @@ function loadFile(input) {
     })          
 }
 
-function pressEnter () {
+function pressEnter() {
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
@@ -31,7 +31,7 @@ function pressEnter () {
     rl.question('Which file should I load? ', function (input) {
         rl.close()
 
-        console.log(input)
+        console.log("You entered :" + input)
 
     // Call any functions you like here. For example:
         loadFile(input)
