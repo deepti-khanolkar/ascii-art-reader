@@ -10,7 +10,7 @@ readDir(fileName)
 
 function readDir(fileName){
     fs.readdir(fileName,(err, data) => {
-       // console.log()
+        console.log()
         for (let i=0; i<data.length; i++){
             let index = i + 1
             console.log(index + " " + data[i])
@@ -24,7 +24,8 @@ function loadFile(input) {
     let txtLink = `data/${imgArr[input-1]}`
     fs.readFile(txtLink, 'utf-8', (err, data) => {
     console.log(data)
-    })      
+    enterComment()  
+    })    
 }
 
 function pressEnter() {
@@ -40,31 +41,29 @@ function pressEnter() {
 
     // Call any functions you like here. For example:
         loadFile(input)
-      //  enterComment()
     })
 }
 
-// function enterComment(){
-//     const rl = readline.createInterface({
-//         comment: process.stdin,
-//         output: process.stdout
-//     })
+function enterComment(){
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    })
 
-//     // rl.question('Please enter some comments: ', function (comment) {
-//     //     rl.close()
-//     //     console.log("Your comment is " + comment)
+    rl.question('Please enter some comments: ', function (input) {
+        rl.close()
+        console.log("Your comment: " + input)
 
-//     // // Call any functions you like here. For example:
-//     //     uploadComment(comment)
-//     // })
-// }
+    // Call any functions you like here. For example:
+        uploadComment(input)
+    })
+}
 
-// function uploadComment(input){
-//     //let txtLink = `data/${imgArr[input-1]}`
-//     fs.writeFile('tests/test.txt', 'utf-8', (err) => {
-//     console.log(err)
-//     })  
-// }
+function uploadComment(input){
+    fs.writeFile('tests/test.txt', input, (err) => {
+    //console.log(err)
+    })  
+}
 
 module.exports = {
     loadFile,
