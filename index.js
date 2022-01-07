@@ -60,9 +60,12 @@ function enterComment(){
 }
 
 function uploadComment(input){
-    fs.writeFile('tests/test.txt', input, (err) => {
-    //console.log(err)
-    })  
+    fs.readFile('tests/test.txt', 'utf-8', (err, data) =>{
+        data += `\n${input}`
+        fs.writeFile('tests/test.txt', data, (err) => {
+            //console.log(err)
+        }) 
+    }) 
 }
 
 module.exports = {
