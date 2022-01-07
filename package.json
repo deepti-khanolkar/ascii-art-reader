@@ -24,6 +24,6 @@
   "devDependencies": {
     "eslint": "7.9.0",
     "eslint-config-eda": "0.1.4",
-    "jest": "^27.0.1"
+    "jest": "^27.4.7"
   }
 }
